@@ -18,7 +18,13 @@ pub trait DeputyAppointerInterface:
     #[init]
     fn init(&self) {
         self.is_paused().set(true);
-        self.mint_pause_toggle_event(&true);
+        self.pause_toggle_event(&true);
+    }
+
+    #[upgrade]
+    fn upgrade(&self) {
+        self.is_paused().set(true);
+        self.pause_toggle_event(&true);
     }
 
     #[only_owner]
@@ -40,7 +46,7 @@ pub trait DeputyAppointerInterface:
     #[only_owner]
     #[endpoint(setIsPaused)]
     fn set_is_paused(&self, is_paused: bool) {
-        self.mint_pause_toggle_event(&is_paused);
+        self.pause_toggle_event(&is_paused);
         self.is_paused().set(is_paused);
     }
   }

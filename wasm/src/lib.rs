@@ -5,9 +5,9 @@
 ////////////////////////////////////////////////////
 
 // Init:                                 1
-// Endpoints:                            5
+// Endpoints:                            6
 // Async Callback (empty):               1
-// Total number of exported functions:   7
+// Total number of exported functions:   8
 
 #![no_std]
 #![allow(internal_features)]
@@ -20,6 +20,7 @@ multiversx_sc_wasm_adapter::endpoints! {
     deputyappointerinterface
     (
         init => init
+        upgrade => upgrade
         initializeContract => initialize_contract
         setDeputyAddress => set_deputy_address
         setIsPaused => set_is_paused
